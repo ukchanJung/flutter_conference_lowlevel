@@ -12,6 +12,7 @@ class ConferencesPage extends StatefulWidget {
 
 class _ConferencesPageState extends State<ConferencesPage> {
   List<Nation> nations = [];
+  String textForm='';
 
   @override
   void initState() {
@@ -44,9 +45,21 @@ class _ConferencesPageState extends State<ConferencesPage> {
             Divider(
               thickness: 2,
             ),
+            TextField(
+              onChanged: (text){
+                setState(() {
+                  textForm = text;
+                });
+              },
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: '검색',
+              ),
+            ),
             Expanded(
               child: ListView(
                 children: nations
+                .where((e) => e.name.toLowerCase().contains(textForm))
                     .map((e) => ListTile( title: Text(e.name),
                           subtitle: Text(e.location), onTap: () {
                             Navigator.push( context,

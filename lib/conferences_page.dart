@@ -59,14 +59,13 @@ class _ConferencesPageState extends State<ConferencesPage> {
             Expanded(
               child: ListView(
                 children: nations
-                .where((e) => e.name.toLowerCase().contains(textForm))
-                    .map((e) => ListTile( title: Text(e.name),
+                      .where((e) => e.name.toLowerCase().contains(textForm.toLowerCase()))
+                      .map((e) => ListTile( title: Text(e.name),
                           subtitle: Text(e.location), onTap: () {
                             Navigator.push( context,
                               MaterialPageRoute(builder: (context) => ConferenceDetailPage(e)), );
-                          },
-                        ))
-                    .toList(),
+                          }))
+                      .toList(),
               ),
             )
           ],

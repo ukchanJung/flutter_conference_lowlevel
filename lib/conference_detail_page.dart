@@ -3,7 +3,7 @@ import 'package:flutter_conference_lowlevel/nation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ConferenceDetailPage extends StatefulWidget {
-  Nation selectNation;
+  final selectNation;
 
   ConferenceDetailPage(this.selectNation);
 
@@ -52,7 +52,7 @@ class _ConferenceDetailPageState extends State<ConferenceDetailPage> {
                     'Go to Official website',
                     style: TextStyle(color: Colors.lightBlueAccent),
                   ),
-                  // Url_launcher사용하여 웹부어 사용
+                  // Url_launcher사용하여 웹 뷰어 사용
                   onPressed: () {
                     setState(() {
                       launchWebView(widget.selectNation.link);
